@@ -514,12 +514,8 @@ export default class AngularColorPickerController {
     /** Sets the internal and external ngModel values */
     setNgModel(value) {
         this.internalNgModel = value;
-
-        if (this.ngModelOptions.getterSetter) {
-            this.ngModel(value);
-        } else {
-            this.ngModel = value;
-        }
+        // updates ngModelController with new value
+        this.$scope.control[0].$setViewValue(value);
     }
 
     update() {
