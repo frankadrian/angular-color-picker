@@ -2,9 +2,9 @@
  * angularjs-color-picker v3.4.8
  * https://github.com/ruhley/angular-color-picker/
  *
- * Copyright 2017 ruhley
+ * Copyright 2018 ruhley
  *
- * 2017-10-06 09:51:57
+ * 2018-10-15 14:26:50
  *
  */
 
@@ -691,12 +691,8 @@ var AngularColorPickerController = function () {
         key: 'setNgModel',
         value: function setNgModel(value) {
             this.internalNgModel = value;
-
-            if (this.ngModelOptions.getterSetter) {
-                this.ngModel(value);
-            } else {
-                this.ngModel = value;
-            }
+            // updates ngModelController with new value
+            this.$scope.control[0].$setViewValue(value);
         }
     }, {
         key: 'update',
